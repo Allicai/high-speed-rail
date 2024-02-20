@@ -5,6 +5,7 @@ import pandas as pd
 import util
 import cProfile
 import time
+import sys
 
 
 cwd = pathlib.Path(__file__).parent.resolve()
@@ -322,8 +323,11 @@ def HSRSearch(problem: HighSpeedRailProblem, heuristic=util.nullHeuristic):
     frontier = util.PriorityQueue()
     frontier.push(startStateHash, 0)
 
+    # used sys to replace terminal outputs instead of printing 3-5k print statements
+    print("initiating...")
     while not frontier.isEmpty():
-        print('explored:', len(explored))
+        sys.stdout.write("\rexplored: {}".format(len(explored)))
+        sys.stdout.flush()
 
         currentStateHash = frontier.pop()
         currentState = hashToState[currentStateHash]
