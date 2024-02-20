@@ -383,13 +383,13 @@ def main():
     # solution = HSRSearch(hsr1)
     solution = HSRSearch(hsr2)
     if solution:
-        print('solution found! exporting to csv...')
+        print('solution found! updating csv...')
         solution.railSegments.to_csv(cwd.joinpath('../out/solution.csv'), index=False)
     else:
-        print('no solution found :(')
+        print('\nno solution found :(')
 
     end = time.time()
-    print('elapsed time (s):', end - start)
+    print('Runtime in seconds:', end - start)
 
 
 if __name__ == '__main__':
