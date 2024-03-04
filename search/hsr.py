@@ -324,7 +324,7 @@ def HSRSearch(problem: HighSpeedRailProblem, heuristic=util.nullHeuristic):
     frontier.push(startStateHash, 0)
 
     # used sys to replace terminal outputs instead of printing 3-5k print statements
-    print("initiating...")
+    print("searching...")
     while not frontier.isEmpty():
         sys.stdout.write("\rexplored: {}".format(len(explored)))
         sys.stdout.flush()
